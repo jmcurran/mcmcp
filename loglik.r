@@ -1,0 +1,34 @@
+loglik<-function(loc,mx,g,ret.dens=FALSE)
+{
+	X<-0
+	if(loc==1 | loc==3 | loc==5){
+		a<-switch(loc,areas$L1,areas$L3,areas$L5)
+		tot<-switch(loc,Total$L1,Total$L3,Total$L5)
+		expected<-rep(0,length(a))
+		expected[g[1:2]]<-tot*mx/2
+		expected[g[3:4]]<-tot*(1-mx)/2
+		X<-sum((expected-a)^2/expected)
+	}else{
+		a<-ifelse(loc==2,areas$L2,areas$L4)
+		tot<-ifelse(loc==2,Total$L2,Total$L4)
+
+		expected<-rep(0,length(a))
+		if(g[1]==g[2]){
+			expected[g[1]]<-tot*mx
+		}else{
+			expected[g[1:2]]<-tot*mx/2
+		}
+		if(g[3]==g[4]){
+			expected[g[3]]<-tot*(1-mx)
+		}else{
+			expected[g[3:4]]<-tot*(1-mx)/2
+		}
+		X<-sum((expected-a)^2/expected)
+	}
+	#print(expected)
+	#print(X)
+	if(ret.dens)
+	return(dchisq(X,3,log=TRUE))
+	else
+	return(X)
+}

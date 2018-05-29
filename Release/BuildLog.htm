@@ -1,0 +1,45 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=Windows-1252">
+</head>
+<body>
+<pre>
+<table width=100% bgcolor=#CFCFE5><tr> <td> <font face=arial size=+3>
+Build Log
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+<h3>------- Build started: Project: MCMCP, Configuration: Release|Win32 -------
+</h3>
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Command Lines
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Creating temporary file "c:\curran\Code\Mcmcp\Release\RSP000001.rsp" with contents
+[
+/O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /EHsc /ML /YX"stdafx.h" /Fp".\Release/MCMCP.pch" /Fo".\Release/" /Fd".\Release/" /W3 /c /TP
+.\main.cpp
+]
+Creating command line "cl.exe @c:\curran\Code\Mcmcp\Release\RSP000001.rsp /nologo"
+Creating temporary file "c:\curran\Code\Mcmcp\Release\RSP000002.rsp" with contents
+[
+/OUT:".\Release/MCMCP.exe" /INCREMENTAL:NO /NOLOGO /PDB:".\Release/MCMCP.pdb" /SUBSYSTEM:CONSOLE /MACHINE:X86  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib
+.\Release\main.obj
+]
+Creating command line "link.exe @c:\curran\Code\Mcmcp\Release\RSP000002.rsp"
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Output Window
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Compiling...
+main.cpp
+main.cpp(254) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+main.cpp(260) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+main.cpp(269) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+main.cpp(277) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+Linking...
+main.obj : error LNK2019: unresolved external symbol "double __cdecl rgamma(double,double)" (?rgamma@@YANNN@Z) referenced in function "double __cdecl rbeta(double,double)" (?rbeta@@YANNN@Z)
+main.obj : error LNK2019: unresolved external symbol "double __cdecl lgamma(double)" (?lgamma@@YANN@Z) referenced in function "double __cdecl logdbeta(double,double,double)" (?logdbeta@@YANNNN@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl fitbeta(double,double,double *,double *,double,double,double)" (?fitbeta@@YAXNNPAN0NNN@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl initnorm(long)" (?initnorm@@YAXJ@Z) referenced in function _main
+.\Release/MCMCP.exe : fatal error LNK1120: 4 unresolved externals
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Results
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+Build log was saved at "file://c:\curran\Code\Mcmcp\Release\BuildLog.htm"
+MCMCP - 5 error(s), 4 warning(s)</pre></table><table   width=100% height=20 bgcolor=#CFCFE5><tr><td><font face=arial size=+2>
+</font></table></body></html>

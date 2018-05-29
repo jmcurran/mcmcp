@@ -1,0 +1,18 @@
+open(F1, "sub.csv") or die("Couldn\'t open results file");
+open(F2,">out.csv") or die("Couldn\'t open the outfile ");
+
+while($line=<F1>){
+    $line=~s/[\r\n]+//g;
+    @tokens = split(/[ ]+/,$line,27);
+    @genotypes = @tokens[0..10];
+    $key = join(' ',@genotypes);
+    $counts{$key}++;
+}
+
+foreach $key (sort keys %counts){
+    print F2 "$key\,$counts{$key}\n";
+}
+
+close(F1);
+close(F2);
+

@@ -1,0 +1,27 @@
+open(F1, "summary-wang.csv") or die("Couldn\'t open results file");
+
+while($line=<F1>){
+    $line=~s/[\r\n]+//g;
+    @tokens = split(/[ ]+/,$line,);
+    @majorgenotypes = @tokens[0..10];
+    @minorgenotypes = @tokens[11..21];
+    $keymajor = join(' ',@majorgenotypes);
+    $countsmajor{$keymajor}++;
+    $keyminor = join(' ',@minorgenotypes);
+    $countsminor{$keyminor}++;
+}
+close(F1);
+
+open(F2,">outmajor.csv") or die("Couldn\'t open the outfile ");
+foreach $key (sort keys %countsmajor){
+    print F2 "$key\,$countsmajor{$key}\n";
+}
+
+close(F2);
+
+open(F2,">outminor.csv") or die("Couldn\'t open the outfile ");
+foreach $key (sort keys %countsminor){
+    print F2 "$key\,$countsminor{$key}\n";
+}
+
+close(F2);
